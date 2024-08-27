@@ -5,49 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Portfolio de Ignacio Bassano</title>
+
+  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+  
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.navbar-light {
+    background-color: inherit;
+}
+
+footer {
+    background-color: inherit;
+    color: inherit;
+}
+</style>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Portafolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Sobre Mí</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="skills.html">Habilidades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body class="light-theme">
 
-    <section id="inicio" class="container my-4 text-center">
-        <h1>Bienvenido a mi Portfolio Personal</h1>
-        <p>Espero ayudarte a explorar mis habilidades, proyectos y más cosas sobre mí.</p>
-    </section>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Portafolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">Sobre Mí</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="skills.html">Habilidades</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="projects.html">Proyectos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contacto</a>
+            </li>
+        </ul>
+        
+        <button id="theme-toggle" class="btn btn-outline-secondary ms-auto">Cambiar Tema</button>
+    </div>
+</div>
+</nav>
 
-    <footer class="text-center my-4">
-        <p>&copy; 2024 Ignacio Bassano. Desarrollo de Software. Ing. en Sistemas de Información</p>
-    </footer>
+<section id="inicio" class="container my-4 text-center">
+<h1>Bienvenido a mi Portfolio Personal</h1>
+<p>Explora mis habilidades, proyectos y más cosas sobre mí.</p>
+</section>
 
+<footer class="text-center my-4">
+<p>&copy; 2024 Ignacio Bassano. Desarrollo de Software. Ing. en Sistemas de Información</p>
+<div>
+    <a href="https://www.linkedin.com/in/ignacio-bassano" target="_blank">
+        <img src="images/descarga.png" alt="LinkedIn" style="width: 30px;">
+    </a>
+    <a href="https://github.com/IgnacioBassano" target="_blank">
+        <img src="images/descarga2.png" alt="GitHub" style="width: 30px;">
+    </a>
+</div>
+</footer>
+
+
+<script>
+
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+
+const storedTheme = localStorage.getItem('theme');
+if (storedTheme) {
+    body.classList.add(storedTheme);
+}
+
+themeToggle.addEventListener('click', () => {
+    if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        localStorage.setItem('theme', 'light-theme');
+    } else {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark-theme');
+    }
+});
+</script>
 </body>
 
 </html>

@@ -5,8 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos - Portfolio de Ignacio Bassano</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.navbar-light {
+    background-color: inherit;
+}
+
+footer {
+    background-color: inherit;
+    color: inherit;
+}
+</style>
 </head>
 
 <body>
@@ -45,11 +72,27 @@
         <div class="row">
             <div class="col-md-6">
                 <h4>Proyecto 1: Aplicación de Clima</h4>
-                <p>Aplicación web que proporciona información sobre el clima en tiempo real.</p>
+                <p>Descripción: Una aplicación web que proporciona información sobre el clima en tiempo real utilizando una API pública. Los usuarios pueden buscar el clima actual en diferentes ubicaciones.
+
+Tecnologías Utilizadas: HTML, CSS, JavaScript, API de OpenWeatherMap
+
+Características:
+
+Muestra la temperatura, condiciones meteorológicas y pronóstico a corto plazo.
+Funcionalidad de búsqueda para diferentes ciudades.
+Diseño amigable y fácil de usar.</p>
             </div>
             <div class="col-md-6">
-                <h4>Proyecto 2: Portfolio Personal / Desarrollo de Software</h4>
-                <p>Diseño y desarrollo de un sitio web personal.</p>
+                <h4>Proyecto 2: Portfolio Personal / DDS</h4>
+                <p>Descripción: Un sitio web personal diseñado para mostrar proyectos, habilidades y experiencias profesionales. Incluye secciones para información personal, habilidades, proyectos y contacto.
+
+                    Tecnologías Utilizadas: HTML, CSS, Bootstrap, JavaScript
+                    
+                    Características:
+                    
+                    Diseño responsive que se adapta a diferentes tamaños de pantalla.
+                    Secciones para habilidades, proyectos y formulario de contacto.
+                    Integración con Google Fonts para mejorar la tipografía.</p>
             </div>
         </div>
     </section>
@@ -57,7 +100,29 @@
     <footer class="text-center my-4">
         <p>&copy; 2024 Ignacio Bassano. Desarrollo de Software. Ing. en Sistemas de Información</p>
     </footer>
+    <script>
 
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+            body.classList.add(storedTheme);
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                localStorage.setItem('theme', 'light-theme');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark-theme');
+            }
+        });
+        </script>
 </body>
 
 </html>

@@ -1,0 +1,28 @@
+/* Archivo: css/styles.css */
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tema claro */
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Tema oscuro */
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: inherit; /* Mantiene el color del texto en ambos temas */
+}
+
+footer {
+    background-color: inherit; /* El fondo del footer sigue el tema */
+    color: inherit;
+}
